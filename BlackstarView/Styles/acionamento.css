@@ -1,0 +1,95 @@
+﻿body {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+.formulario {
+    border: 1px solid #d4d4d4;
+    font-family: Arial;
+    background-color: white;
+    margin: 15px 15px 25px 15px;
+}
+
+.formulario-titulo {
+    padding: 10px;
+    font-size: 14px;
+    background-color: #2e2e2e;
+    color: white;
+}
+
+.formulario-campo {
+    padding: 10px;
+    border-top: 1px solid #d4d4d4;
+    font-size: 12px;
+}
+
+.icon-btn {
+    background-color: #2e2e2e;
+    color: white;
+    border: 1px solid #d4d4d4;
+    font-size: 24px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE/Edge */
+    user-select: none;
+}
+
+    .icon-btn:hover {
+        cursor: pointer;
+        border: 1px solid #808080;
+    }
+
+    .icon-btn:active {
+        background-color: #808080;
+    }
+
+.tb-acessbtn {
+    color: #333333;
+    font-size: 16px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE/Edge */
+    user-select: none;
+}
+
+    .tb-acessbtn:hover {
+        color: black;
+        cursor: pointer;
+    }
+
+
+.modal {
+    display: none;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    overflow: hidden;
+    overflow-y: scroll;
+    z-index: 98;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.modal-close {
+    float: right;
+    font-size: 15px;
+    border-radius: 100%;
+    color: white;
+    background-color: #d34d4d;
+}
+
+    .modal-close:hover {
+        cursor: pointer;
+        color: #d34d4d;
+        background-color: white;
+    }

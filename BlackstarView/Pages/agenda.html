@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>BS - Agenda</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../Styles/loading.css" rel="stylesheet" />
+    <link href="../Styles/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="../Styles/jquery.datetimepicker.css" rel="stylesheet" />
+    <link href="../Styles/agenda.css" rel="stylesheet" />
+
+    <script src="../Scripts/jquery-1.12.1.min.js"></script>
+    <script src="../Scripts/loading.js"></script>
+    <script src="../Scripts/jquery.datetimepicker.js"></script>
+    <script src="../Scripts/date.js"></script>
+
+    <!--#region Scheduler-->
+    <link rel="stylesheet" href="../Scripts/jqwidgets/styles/jqx.base.css" type="text/css" />
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxbuttons.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxdate.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxscheduler.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxscheduler.api.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxdatetimeinput.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxmenu.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxcalendar.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxtooltip.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxwindow.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxcheckbox.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxlistbox.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxdropdownlist.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxnumberinput.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxradiobutton.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxinput.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/globalization/globalize.culture.pt-BR.js"></script>
+    <!--#endregion Scheduler-->
+
+    <script src="../Scripts/agenda.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+
+    <!--#region FORMS DE EDIÇÃO-->
+    <!--#region AGENDAMENTO-->
+    <div name="agendamento" class="editform modal">
+        <form class="formulario" name="editagendamento">
+            <div class="formulario-titulo">
+                Editar Agendamento
+                <i class="material-icons modal-close bt-close-editform">close</i>
+            </div>
+            <div class="formulario-campo">
+                ID: <input type="text" name="idagendamento" readonly required />
+            </div>
+            <div class="formulario-campo">
+                <input type="hidden" id="idcontrato_agnd" disabled />
+                Cliente: <input type="text" name="cliente" readonly required />
+                <input type="button" id="agend_acessarficha" value="Acessar Ficha" />
+            </div>
+            <div class="formulario-campo">
+                Analista: <input type="text" name="usuario" disabled />
+            </div>
+            <div class="formulario-campo">
+                Tipo: <select name="idtipoagendamento" required></select>
+            </div>
+            <div class="formulario-campo">
+                Local: <select name="idlocal" required></select>
+            </div>
+            <div class="formulario-campo">
+                Início: <input type="text" class="datetimepicker" name="dtini" required />
+            </div>
+            <div class="formulario-campo">
+                Término: <input type="text" class="datetimepicker" name="dtfim" required />
+            </div>
+            <div class="formulario-campo">
+                Observação: <textarea name="obs" style="width: 500px;"></textarea>
+            </div>
+            <div class="formulario-campo">
+                Situação:
+                <label><input type="radio" name="ativo" value="true" required />Ativo</label>
+                <label><input type="radio" name="ativo" value="false" required />Inativo</label>
+            </div>
+            <div class="formulario-campo">
+                <input type="submit" value="Salvar" />
+            </div>
+        </form>
+    </div>
+    <!--#endregion AGENDAMENTO-->
+    <!--#endregion FORMS DE EDIÇÃO-->
+    <!--#region Agendamento -->
+    <form class="formulario">
+        <div class="formulario-titulo">
+            Agendamento
+            <i class="material-icons hide-form">swap_vertical_circle</i>
+        </div>
+        <div class="formulario-campo">
+            Carteira: <select id="ddl_cart"></select>
+        </div>
+        <div class="formulario-campo">
+            <div id="bt-refresh" class="icon-btn">
+                <i class="material-icons" title="Atualizar Agendamentos">refresh</i>
+                Atualizar
+            </div>
+        </div>
+        <div class="formulario-campo">
+            <div id="scheduler"></div>
+        </div>
+    </form>
+
+    <!--#endregion Agendamento -->
+
+</body>
+</html>

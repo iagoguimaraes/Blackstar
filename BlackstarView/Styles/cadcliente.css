@@ -1,0 +1,28 @@
+﻿body {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+.formulario {
+    border: 1px solid #d4d4d4;
+    font-family: Arial;
+    background-color: white;
+    margin: 15px 15px 25px 15px;
+}
+
+.formulario-titulo {
+    padding: 10px;
+    font-size: 14px;
+    background-color: #2e2e2e;
+    color: white;
+}
+
+.formulario-campo {
+    padding: 10px;
+    border-top: 1px solid #d4d4d4;
+    font-size: 12px;
+}

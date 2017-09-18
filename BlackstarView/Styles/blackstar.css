@@ -1,0 +1,110 @@
+﻿
+body {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+#header {
+    position: absolute;
+    height: 35px;
+    width: 100%;
+    background-color: #2e2e2e;
+}
+
+#logo {
+    margin-left: 35px;
+    margin-top: 5px;
+    height: 25px;
+    width: 125px;
+    display: inline-block;
+    background-image: url('../Images/Blackstar.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+
+#open-menu, #close-menu {
+    float: right;
+    margin-right: 15px;
+    height: 35px;
+    color: white;
+    font-size: 35px;
+}
+
+    #open-menu:hover, #close-menu:hover {
+        cursor: pointer;
+    }
+
+#menu {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 400px;
+    right: 0;
+    background-color: #2e2e2e;
+    box-shadow: -1px 0px 35px 0px rgba(0,0,0,0.8);
+    z-index: 99;
+}
+
+#menu-list-item {
+    height: calc(100% - 35px);
+    width: 100%;
+    margin-top: 35px;
+    overflow-y: scroll;
+}
+
+.menu-item {
+    height: 30px;
+    width: 100%;
+    border-bottom: 1px solid #767676;
+    color: #b4b4b4;
+}
+
+    .menu-item:hover {
+        cursor: pointer;
+        background-color: #2e2e2e;
+        color: white;
+    }
+
+.menu-item-icon {
+    float: left;
+    margin-left: 5px;
+    font-size: 30px;
+}
+
+.menu-item-text {
+    float: left;
+    line-height: 30px;
+    text-indent: 10px;
+}
+
+#pagecontent {
+    position: absolute;
+    height: calc(100% - 35px);
+    width: 100%;
+    margin-top: 35px;
+    overflow-y: scroll;
+}
+
+/* Tablet */
+@media only screen and (max-width : 992px) {
+
+    #menu {
+        width: 60%;
+    }
+}
+
+
+/* Celular */
+@media only screen and (max-width : 768px) {
+
+    #menu {
+        width: 100%;
+    }
+}

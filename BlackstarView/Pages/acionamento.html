@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>BS - Acionamento</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../Styles/loading.css" rel="stylesheet" />
+    <link href="../Styles/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="../Styles/acionamento.css" rel="stylesheet" />
+
+    <script src="../Scripts/jquery-1.12.1.min.js"></script>
+    <script src="../Scripts/loading.js"></script>
+    <script src="../Scripts/jquery.dataTables.min.js"></script>
+    <script src="../Scripts/acionamento.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+    <form class="formulario" name="acionamento">
+        <div class="formulario-titulo">Acionamento</div>
+        <div class="formulario-campo">
+            <span>Buscar:</span>
+            <select name="tipo">
+                <option>CPF</option>
+                <option>Nome</option>
+                <option>Contrato</option>
+            </select>
+            <input type="search" id="txtbox_busca" name="busca" required/>
+            <input type="submit" value="Buscar" />
+        </div>
+        <div class="formulario-campo">
+            <table id="table" class="hover row-border compact nowrap order-column cell-border"></table>
+        </div>
+    </form>
+
+
+</body>
+</html>

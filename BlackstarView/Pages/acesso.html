@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>BS- Acessos</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../Styles/loading.css" rel="stylesheet" />
+    <link href="../Styles/acesso.css" rel="stylesheet" />
+
+    <script src="../Scripts/jquery-1.12.1.min.js"></script>
+    <script src="../Scripts/loading.js"></script>
+    <script src="../Scripts/acesso.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+    <form class="formulario" name="cadacesso">
+        <div class="formulario-titulo">Administrar Acessos</div>
+        <div class="formulario-campo">
+            Nível de Acesso:
+            <select id="dll_nivel">
+                <option value="-1">Selecione</option>
+            </select>
+        </div>
+        <div class="formulario-campo">
+            Páginas:
+            <ul id="list_acessopagina"></ul>
+        </div>
+        <div class="formulario-campo">
+            Funções:
+            <ul id="list_acessofuncao"></ul>
+        </div>
+    </form>
+</body>
+</html>

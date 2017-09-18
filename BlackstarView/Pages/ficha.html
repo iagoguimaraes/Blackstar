@@ -1,0 +1,408 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br">
+<head>
+    <title>BS - Ficha</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../Styles/loading.css" rel="stylesheet" />
+    <link href="../Styles/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="../Styles/jquery.datetimepicker.css" rel="stylesheet" />
+    <link href="../Styles/ficha.css" rel="stylesheet" />
+
+    <script src="../Scripts/jquery-1.12.1.min.js"></script>
+    <script src="../Scripts/loading.js"></script>
+    <script src="../Scripts/jquery.dataTables.min.js"></script>
+    <script src="../Scripts/moment.min.js"></script>
+    <script src="../Scripts/datetime-moment.js"></script>
+    <script src="../Scripts/jquery.datetimepicker.js"></script>
+    <script src="../Scripts/date.js"></script>
+
+    <!--#region Scheduler-->
+    <link rel="stylesheet" href="../Scripts/jqwidgets/styles/jqx.base.css" type="text/css" />
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxbuttons.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxdate.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxscheduler.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxscheduler.api.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxdatetimeinput.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxmenu.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxcalendar.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxtooltip.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxwindow.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxcheckbox.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxlistbox.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxdropdownlist.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxnumberinput.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxradiobutton.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/jqxinput.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="../Scripts/jqwidgets/globalization/globalize.culture.pt-BR.js"></script>
+    <!--#endregion Scheduler-->
+
+    <script src="../Scripts/ficha.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+
+    <!--#region FORMS DE CADASTRO-->
+    <!--#region TABULAÇÃO-->
+
+    <div name="tab" class="modal cadform">
+        <form class="formulario" name="cadtab">
+            <div class="formulario-titulo">
+                Inserir Tabulação
+                <i class="material-icons modal-close bt-close-cadform">close</i>
+            </div>
+            <input type="hidden" name="idcontrato" />
+            <div class="formulario-campo">
+                Ocorrência: <select name="idocor" required></select>
+            </div>
+            <div class="formulario-campo">
+                Agendamento: <input type="text" class="datetimepicker" name="dtagend" disabled />
+            </div>
+            <div class="formulario-campo">
+                Telefone: <select name="idtel"></select>
+            </div>
+            <div class="formulario-campo">
+                Endereço: <select name="idend"></select>
+            </div>
+            <div class="formulario-campo">
+                Email: <select name="idmail"></select>
+            </div>
+            <div class="formulario-campo">
+                Observação: <textarea name="obs" style="width: 500px;"></textarea>
+            </div>
+            <div class="formulario-campo">
+                <input type="submit" value="Inserir" />
+            </div>
+        </form>
+    </div>
+
+    <!--#endregion TABULAÇÃO-->
+    <!--#region TELEFONE-->
+    <div name="tel" class="cadform modal">
+        <form class="formulario" name="cadtel">
+            <div class="formulario-titulo">
+                Inserir Telefone
+                <i class="material-icons modal-close bt-close-cadform">close</i>
+            </div>
+            <input type="hidden" name="idcontrato" />
+            <div class="formulario-campo">
+                DDD: <input type="number" name="ddd" min="11" max="99" required />
+            </div>
+            <div class="formulario-campo">
+                NUMERO: <input type="number" name="numero" max="999999999" required />
+            </div>
+            <div class="formulario-campo">
+                TIPO: <select name="tipo"><option>FIXO</option><option>CELULAR</option></select>
+            </div>
+            <div class="formulario-campo">
+                <input type="submit" value="Inserir" />
+            </div>
+        </form>
+    </div>
+    <!--#endregion TELEFONE-->
+    <!--#region ENDEREÇO-->
+
+    <div name="end" class="modal cadform">
+        <form class="formulario" name="cadend">
+            <div class="formulario-titulo">
+                Inserir Endereço
+                <i class="material-icons modal-close bt-close-cadform">close</i>
+            </div>
+            <input type="hidden" name="idcontrato" />
+            <div class="formulario-campo">
+                CEP: <input type="number" name="cep" required />
+            </div>
+            <div class="formulario-campo">
+                NUMERO: <input type="number" name="numero" required />
+            </div>
+            <div class="formulario-campo">
+                LOGRADOURO: <input type="text" name="logradouro" required />
+            </div>
+            <div class="formulario-campo">
+                BAIRRO: <input type="text" name="bairro" required />
+            </div>
+            <div class="formulario-campo">
+                CIDADE: <input type="text" name="cidade" required />
+            </div>
+            <div class="formulario-campo">
+                UF: <select name="uf">
+                    <option value="AC">AC</option>
+                    <option value="AL">AL</option>
+                    <option value="AM">AM</option>
+                    <option value="AP">AP</option>
+                    <option value="BA">BA</option>
+                    <option value="CE">CE</option>
+                    <option value="DF">DF</option>
+                    <option value="ES">ES</option>
+                    <option value="GO">GO</option>
+                    <option value="MA">MA</option>
+                    <option value="MG">MG</option>
+                    <option value="MS">MS</option>
+                    <option value="MT">MT</option>
+                    <option value="PA">PA</option>
+                    <option value="PB">PB</option>
+                    <option value="PE">PE</option>
+                    <option value="PI">PI</option>
+                    <option value="PR">PR</option>
+                    <option value="RJ">RJ</option>
+                    <option value="RN">RN</option>
+                    <option value="RS">RS</option>
+                    <option value="RO">RO</option>
+                    <option value="RR">RR</option>
+                    <option value="SC">SC</option>
+                    <option value="SE">SE</option>
+                    <option value="SP">SP</option>
+                    <option value="TO">TO</option>
+                </select>
+            </div>
+            <div class="formulario-campo">
+                <input type="submit" value="Inserir" />
+            </div>
+        </form>
+    </div>
+
+    <!--#endregion ENDEREÇO-->
+    <!--#region EMAIL-->
+
+    <div name="mail" class="modal cadform">
+        <form class="formulario" name="cadmail">
+            <div class="formulario-titulo">
+                Inserir Email
+                <i class="material-icons modal-close bt-close-cadform">close</i>
+            </div>
+            <input type="hidden" name="idcontrato" />
+            <div class="formulario-campo">
+                Email: <input type="email" name="email" required />
+            </div>
+            <div class="formulario-campo">
+                <input type="submit" value="Inserir" />
+            </div>
+        </form>
+    </div>
+
+    <!--#endregion EMAIL-->
+    <!--#region AGENDAMENTO-->
+    <div name="agendamento" class="cadform modal">
+        <form class="formulario" name="cadagendamento">
+            <div class="formulario-titulo">
+                Inserir Agendamento
+                <i class="material-icons modal-close bt-close-cadform">close</i>
+            </div>
+            <input type="hidden" name="idcontrato" />
+            <div class="formulario-campo">
+                Tipo: <select name="idtipoagendamento" required></select>
+            </div>
+            <div class="formulario-campo">
+                Local: <select name="idlocal" required></select>
+            </div>
+            <div class="formulario-campo">
+                Início: <input type="text" class="datetimepicker" name="dtini" required />
+            </div>
+            <div class="formulario-campo">
+                Término: <input type="text" class="datetimepicker" name="dtfim" required />
+            </div>
+            <div class="formulario-campo">
+                Observação: <textarea name="obs" style="width: 500px;"></textarea>
+            </div>
+            <div class="formulario-campo">
+                <input type="submit" value="Inserir" />
+            </div>
+        </form>
+    </div>
+    <!--#endregion AGENDAMENTO-->
+    <!--#endregion FORMS DE CADASTRO-->
+    <!--#region FORMS DE EDIÇÃO-->
+    <!--#region AGENDAMENTO-->
+    <div name="agendamento" class="editform modal">
+        <form class="formulario" name="editagendamento">
+            <div class="formulario-titulo">
+                Editar Agendamento
+                <i class="material-icons modal-close bt-close-editform">close</i>
+            </div>
+            <div class="formulario-campo">
+                ID: <input type="text" name="idagendamento" readonly required />
+            </div>
+            <div class="formulario-campo">
+                <input type="hidden" id="idcontrato_agnd" disabled />
+                Cliente: <input type="text" name="cliente" readonly required />
+                <input type="button" id="agend_acessarficha" value="Acessar Ficha" />
+            </div>
+            <div class="formulario-campo">
+                Analista: <input type="text" name="usuario" disabled />
+            </div>
+            <div class="formulario-campo">
+                Tipo: <select name="idtipoagendamento" required></select>
+            </div>
+            <div class="formulario-campo">
+                Local: <select name="idlocal" required></select>
+            </div>
+            <div class="formulario-campo">
+                Início: <input type="text" class="datetimepicker" name="dtini" required />
+            </div>
+            <div class="formulario-campo">
+                Término: <input type="text" class="datetimepicker" name="dtfim" required />
+            </div>
+            <div class="formulario-campo">
+                Observação: <textarea name="obs" style="width: 500px;"></textarea>
+            </div>
+            <div class="formulario-campo">
+                Situação:
+                <label><input type="radio" name="ativo" value="true" required />Ativo</label>
+                <label><input type="radio" name="ativo" value="false" required />Inativo</label>
+            </div>
+            <div class="formulario-campo">
+                <input type="submit" value="Salvar" />
+            </div>
+        </form>
+    </div>
+    <!--#endregion AGENDAMENTO-->
+    <!--#endregion FORMS DE EDIÇÃO-->
+    <!--#region FICHA -->
+
+    <form class="formulario">
+        <div class="formulario-titulo">
+            Dados do Cliente
+            <i class="material-icons hide-form">swap_vertical_circle</i>
+        </div>
+        <div class="formulario-campo">
+            <div id="bt-refreshficha" class="icon-btn">
+                <i class="material-icons" title="Atualizar Ficha">refresh</i>
+                Atualizar Ficha
+            </div>
+            <div id="bt-backacionamento" class="icon-btn">
+                <i class="material-icons" title="Atualizar Ficha">headset</i>
+                Voltar Acionamento
+            </div>
+        </div>
+        <div class="formulario-campo">
+            <b>Contrato:</b> <span class="contrato-info" name="numero"></span>
+        </div>
+        <div class="formulario-campo">
+            <b>Sequencial:</b> <span class="contrato-info" name="sq"></span>
+        </div>
+        <div class="formulario-campo">
+            <b>CPF/CNPJ:</b> <span class="contrato-info" name="fcpf"></span>
+        </div>
+        <div class="formulario-campo">
+            <b>Carteira:</b> <span class="contrato-info" name="carteira"></span>
+        </div>
+        <div class="formulario-campo">
+            <b>Nome:</b> <span class="contrato-info" name="nome"></span>
+        </div>
+        <div class="formulario-campo">
+            <b>Nascimento:</b> <span class="contrato-info" name="fdtnasc"></span>
+        </div>
+        <div class="formulario-campo">
+            <b>Gênero:</b> <span class="contrato-info" name="sexo"></span>
+        </div>
+        <div class="formulario-campo">
+            <b>Situação:</b> <span class="contrato-info" name="fativo"></span>
+        </div>
+        <div class="formulario-campo">
+            <b>Data Cadastro:</b> <span class="contrato-info" name="fdtcad"></span>
+        </div>
+        <div class="formulario-campo">
+            <b>Data Devolução:</b> <span class="contrato-info" name="fdtdev"></span>
+        </div>
+        <div class="formulario-campo">
+            <b>Preferêncial:</b> <span class="contrato-info" name="fpreferencial"></span>
+        </div>
+        <div class="formulario-campo">
+            <b>Observação:</b> <span class="contrato-info" name="obs"></span>
+        </div>
+    </form>
+
+    <!--#endregion FICHA -->
+    <!--#region Andamentos -->
+
+    <form class="formulario">
+        <div class="formulario-titulo">
+            Andamentos
+            <i class="material-icons hide-form">swap_vertical_circle</i>
+        </div>
+        <div class="formulario-campo">
+            <i id="bt-addtab" class="material-icons icon-btn" title="Adicionar Tabulação">add</i>
+        </div>
+        <div class="formulario-campo">
+            <table id="table-tab" class="table hover row-border compact nowrap order-column  cell-border"></table>
+        </div>
+    </form>
+
+    <!--#endregion Andamentos -->
+    <!--#region Telefones -->
+
+    <form class="formulario">
+        <div class="formulario-titulo">
+            Telefones
+            <i class="material-icons hide-form">swap_vertical_circle</i>
+        </div>
+        <div class="formulario-campo">
+            <i id="bt-addtel" class="material-icons icon-btn" title="Adicionar Telefone">add</i>
+        </div>
+        <div class="formulario-campo">
+            <table id="table-tel" class="table hover row-border compact nowrap order-column cell-border"></table>
+        </div>
+    </form>
+
+    <!--#endregion Telefones-->
+    <!--#region Endereços -->
+
+    <form class="formulario">
+        <div class="formulario-titulo">
+            Endereços
+            <i class="material-icons hide-form">swap_vertical_circle</i>
+        </div>
+        <div class="formulario-campo">
+            <i id="bt-addend" class="material-icons icon-btn" title="Adicionar Endereço">add</i>
+        </div>
+        <div class="formulario-campo">
+            <table id="table-end" class="table hover row-border compact nowrap order-column  cell-border"></table>
+        </div>
+    </form>
+
+    <!--#endregion Endereços -->
+    <!--#region Emails -->
+
+    <form class="formulario">
+        <div class="formulario-titulo">
+            Emails
+            <i class="material-icons hide-form">swap_vertical_circle</i>
+        </div>
+        <div class="formulario-campo">
+            <i id="bt-addmail" class="material-icons icon-btn" title="Adicionar Email">add</i>
+        </div>
+        <div class="formulario-campo">
+            <table id="table-mail" class="table hover row-border compact nowrap order-column  cell-border"></table>
+        </div>
+    </form>
+
+    <!--#endregion Endereços -->
+    <!--#region Agendamento -->
+    <form class="formulario">
+        <div class="formulario-titulo">
+            Agendamento
+            <i class="material-icons hide-form">swap_vertical_circle</i>
+        </div>
+        <div class="formulario-campo">
+            <i id="bt-addagendamento" class="material-icons icon-btn" title="Adicionar Agendamento">add</i>
+        </div>
+        <div class="formulario-campo">
+            <div id="scheduler"></div>
+        </div>
+    </form>
+
+    <!--#endregion Agendamento -->
+    <!--Faturas -->
+    <!--<form class="formulario">
+        <div class="formulario-titulo">Faturas</div>
+        <div class="formulario-campo">
+        </div>
+    </form>-->
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>BS - Níveis</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../Styles/loading.css" rel="stylesheet" />
+    <link href="../Styles/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="../Styles/nivel.css" rel="stylesheet" />
+
+    <script src="../Scripts/jquery-1.12.1.min.js"></script>
+    <script src="../Scripts/loading.js"></script>
+    <script src="../Scripts/jquery.dataTables.min.js"></script>
+    <script src="../Scripts/nivel.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    
+    <!--FORM CADASTRO-->
+    <div id="cadform" class="modal">
+        <form class="formulario" name="cadnivel">
+            <div class="formulario-titulo">
+                Inserir Nível
+                <i id="bt-close-cadform" class="material-icons modal-close">close</i>
+            </div>
+            <div class="formulario-campo">
+                Novo Nível: <input type="text" name="descricao" maxlength="45" required />
+            </div>
+            <div class="formulario-campo">
+                <input type="submit" value="Inserir" />
+            </div>
+        </form>
+    </div>
+
+    <!--FORM EDIÇÃO-->
+    <div id="editform" class="modal">
+        <form class="formulario" name="editnivel">
+            <div class="formulario-titulo">
+                Editar Nível
+                <i id="bt-close-editform" class="material-icons modal-close">close</i>
+            </div>
+            <div class="formulario-campo">
+                ID:
+                <input type="text" name="idnivel" readonly required />
+            </div>
+            <div class="formulario-campo">
+                Nível: <input type="text" name="descricao" maxlength="45" required />
+            </div>
+            <div class="formulario-campo">
+                Situação:
+                <label><input type="radio" name="ativo" value="true" required />Ativo</label>
+                <label><input type="radio" name="ativo" value="false" required />Inativo</label>
+            </div>
+            <div class="formulario-campo">
+                <input type="submit" value="Salvar" />
+            </div>
+        </form>
+    </div>
+
+
+    <!--LISTAGEM (TABLE)-->
+    <form class="formulario">
+        <div class="formulario-titulo">Níveis Cadastrados</div>
+        <div class="formulario-campo">
+            <i id="bt-open-cadform" class="material-icons icon-btn" title="Cadastrar Nível">add</i>
+            <i id="bt-refreshtable" class="material-icons icon-btn" title="Atualizar">refresh</i>
+        </div>
+        <div class="formulario-campo">
+            <table id="table" class="hover row-border compact nowrap order-column cell-border"></table>
+        </div>
+    </form>
+
+</body>
+</html>
